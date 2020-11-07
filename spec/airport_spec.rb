@@ -31,7 +31,7 @@ describe Airport do
 
     it "should not be able to take off when it is stormy by raising error" do
       allow(subject).to receive(:stormy?).and_return true
-      expect { subject.take_off(plane) }.to raise_error "Cannot land in the middle of the storm"
+      expect { subject.take_off(plane) }.to raise_error "Cannot take off in the middle of the storm"
     end
   end
 
@@ -44,6 +44,11 @@ describe Airport do
       Airport::DEFAULT_CAPACITY.times { subject.land(plane) }
 
       expect { subject.land(plane) }.to raise_error "Airport is full"
+    end
+
+    it "should prevent landing when it is stormy by raising error" do
+      allow(subject).to receive(:stormy?).and_return true
+      expect { subject.land(plane) }.to raise_error "Cannot land in the middle of the storm"
     end
   end
 end

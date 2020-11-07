@@ -13,7 +13,7 @@ class Airport
   end
 
   def take_off(plane)
-    raise "Cannot land in the middle of the storm" if stormy?
+    raise "Cannot take off in the middle of the storm" if stormy?
 
     hangar.delete(plane)
     puts "#{plane} is no longer at the airport"
@@ -22,6 +22,7 @@ class Airport
   end
 
   def land(plane)
+    raise "Cannot land in the middle of the storm" if stormy?
     raise "Airport is full" if full?
     hangar << plane
   end
