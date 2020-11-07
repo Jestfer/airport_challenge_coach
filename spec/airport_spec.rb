@@ -15,7 +15,7 @@ describe Airport do
   it "should allow to instantiate with a specified capacity" do
     giant_capacity = 1000
     giant_airport = Airport.new(giant_capacity)
-    expect(giant_airport.capacity).to eq giant_capacity #testing state?
+    expect(giant_airport.capacity).to eq giant_capacity # testing state?
   end
 
   describe "#take_off" do

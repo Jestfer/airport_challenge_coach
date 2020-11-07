@@ -24,6 +24,7 @@ class Airport
   def land(plane)
     raise "Cannot land in the middle of the storm" if stormy?
     raise "Airport is full" if full?
+
     hangar << plane
   end
 
