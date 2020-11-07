@@ -1,9 +1,10 @@
 class Airport
-  attr_reader :hangar
+  attr_reader :hangar, :capacity
 
   DEFAULT_CAPACITY = 6
 
-  def initialize
+  def initialize(capacity = DEFAULT_CAPACITY)
+    @capacity = capacity
     @hangar = []
   end
 
@@ -21,6 +22,6 @@ class Airport
   private
 
   def full?
-    hangar.size == DEFAULT_CAPACITY
+    hangar.size == capacity
   end
 end
