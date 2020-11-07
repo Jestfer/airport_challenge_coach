@@ -8,7 +8,6 @@
         - [X] a plane cannot land
     - WHEN has capacity
         - [x] plane can land
-    
-
----
-
+    - WHEN it is stormy
+        - [x] plane cannot take off
+        - [] plane cannot land

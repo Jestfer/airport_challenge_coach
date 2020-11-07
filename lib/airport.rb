@@ -1,4 +1,8 @@
+require 'weather'
+
 class Airport
+  extend Weather
+
   attr_reader :hangar, :capacity
 
   DEFAULT_CAPACITY = 6
@@ -9,8 +13,11 @@ class Airport
   end
 
   def take_off(plane)
+    raise "Cannot land in the middle of the storm" if stormy?
+
     hangar.delete(plane)
     puts "#{plane} is no longer at the airport"
+
     hangar # doing this just to be able to test behaviour ???
   end
 
@@ -23,5 +30,9 @@ class Airport
 
   def full?
     hangar.size == capacity
+  end
+
+  def stormy?
+    Weather::stormy?
   end
 end
